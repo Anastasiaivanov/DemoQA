@@ -11,10 +11,19 @@ public class MainPage extends PageBase {
     }
 
     @FindBy(xpath = "//body/div/div/div/div/div/div[6]")
+    //(xpath = "//div[@class='category-cards']/div[.='Book Store Application']")
     WebElement bookStoreBtn;
 
-    public BookStorePage goToBookStorePage() {
+    @FindBy(xpath = "//body/div/div/div/div/div/div[1]")
+    WebElement elementBtn;
+
+    public ProfilePage goToProfilePage() {
         bookStoreBtn.click();
-        return new BookStorePage(driver);
+        return new ProfilePage(driver);
+    }
+
+    public ElementsPage goToElementsPage() {
+        elementBtn.click();
+        return new ElementsPage(driver);
     }
 }

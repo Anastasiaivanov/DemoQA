@@ -32,5 +32,4 @@ public class LoginPage extends PageBase {
         loginBtn.click();
         return this;
     }
-
 }

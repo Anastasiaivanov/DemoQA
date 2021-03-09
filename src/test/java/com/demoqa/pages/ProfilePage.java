@@ -76,7 +76,6 @@ public class ProfilePage extends PageBase {
 
     public ProfilePage addBookToUsersCollection() {
         titleOfBook.click();
-        pause(500);
         scrollDownPage();
         pause(500);
         addToCollectionBtn.click();

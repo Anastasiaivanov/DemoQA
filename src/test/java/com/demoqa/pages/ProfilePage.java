@@ -26,14 +26,17 @@ public class ProfilePage extends PageBase {
     @FindBy(xpath = "//span[@class='mr-2']/a")
     WebElement titleOfBook;
 
-    @FindBy(id = "addNewRecordButton")
+    @FindBy(css = ".text-right.fullButton")
     WebElement addToCollectionBtn;
 
-    @FindBy(css = ".text-right.button.di")
+    @FindBy(id = "delete-record-undefined")
     WebElement deleteBookFromCollectionBtn;
 
     @FindBy(xpath = "//span[contains(text(),'Profile')]")
     WebElement goToProfileBtn;
+
+    @FindBy(id="closeSmallModal-ok")
+    WebElement okBtnToDelete;
 
     public ProfilePage verifyUsername(String username) {
         if (user.getText().equalsIgnoreCase(username)) {
@@ -75,16 +78,21 @@ public class ProfilePage extends PageBase {
         titleOfBook.click();
         pause(500);
         scrollDownPage();
+        pause(500);
         addToCollectionBtn.click();
-        //driver.switchTo().alert().accept();
+        pause(500);
         return this;
     }
 
-    public ProfilePage deleteBookFromUsersCollection() {
+    public ProfilePage deleteFirstBookFromUsersCollection() {
         scrollDownPage();
         goToProfileBtn.click();
         scrollDownPage();
         deleteBookFromCollectionBtn.click();
+        pause(500);
+        okBtnToDelete.click();
+        pause(500);
+        driver.switchTo().alert().accept();
         return this;
     }
 }

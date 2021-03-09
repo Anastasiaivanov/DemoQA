@@ -35,11 +35,15 @@ public class SearchBookTests extends TestBase {
     }
 
     @Test
-    public void addAnDeleteBooksToCollection() {
+    public void addBookInCollection() {
         String text = "Git";
         new ProfilePage(driver).findBook(text).takeNameOfBook();
         Assert.assertTrue(new ProfilePage(driver).takeNameOfBook().contains(text));
         new ProfilePage(driver).addBookToUsersCollection();
-        new ProfilePage(driver).deleteBookFromUsersCollection();
+    }
+
+    @Test
+    public void deleteFirstBookFromCollection(){
+        new ProfilePage(driver).deleteFirstBookFromUsersCollection();
     }
 }

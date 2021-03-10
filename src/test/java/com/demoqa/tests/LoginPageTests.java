@@ -9,7 +9,7 @@ public class LoginPageTests extends TestBase {
 
     @Test
     public void loginTest() {
-        new MainPage(driver).goToProfilePage();
+        new MainPage(driver).goToBookStore();
         new ProfilePage(driver).goToLoginForm();
         new LoginPage(driver).loginPositive("rusaldo", "Rusaldo12345!!")
                 .verifyUsername("rusaldo").logout();

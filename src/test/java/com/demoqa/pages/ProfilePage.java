@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ProfilePage extends PageBase {
 
     public ProfilePage(WebDriver driver) {
@@ -29,13 +31,14 @@ public class ProfilePage extends PageBase {
     @FindBy(css = ".text-right.fullButton")
     WebElement addToCollectionBtn;
 
-    @FindBy(id = "delete-record-undefined")
-    WebElement deleteBookFromCollectionBtn;
+    @FindBy(xpath = "//*[@id='delete-record-undefined']")
+    List<WebElement> booklist;
 
-    @FindBy(xpath = "//span[contains(text(),'Profile')]")
+    @FindBy(css = ".show #item-3")
+    //xpath = "//span[contains(text(),'Profile')]"
     WebElement goToProfileBtn;
 
-    @FindBy(id="closeSmallModal-ok")
+    @FindBy(id = "closeSmallModal-ok")
     WebElement okBtnToDelete;
 
     public ProfilePage verifyUsername(String username) {
@@ -74,20 +77,25 @@ public class ProfilePage extends PageBase {
                 (By.cssSelector(".rt-tr-group:nth-child(1) .rt-td:nth-child(2)")).getText();
     }
 
-    public ProfilePage addBookToUsersCollection() {
+    public ProfilePage clickByFirstBookInTab() {
         titleOfBook.click();
-        scrollDownPage();
-        pause(500);
-        addToCollectionBtn.click();
-        pause(500);
         return this;
     }
 
-    public ProfilePage deleteFirstBookFromUsersCollection() {
-        scrollDownPage();
-        goToProfileBtn.click();
-        scrollDownPage();
-        deleteBookFromCollectionBtn.click();
+    public ProfilePage addBookToCollection() {
+        clickWithActionJava(addToCollectionBtn, 0, 300);
+        pause(300);
+        driver.switchTo().alert().accept();
+        return this;
+    }
+
+    public ProfilePage clickOnProfileBtn() {
+        clickWithActionJava(goToProfileBtn, 0, 500);
+        return this;
+    }
+
+    public ProfilePage clickOnTrashBin() {
+        booklist.get(0).click();
         pause(500);
         okBtnToDelete.click();
         pause(500);

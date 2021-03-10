@@ -17,7 +17,7 @@ public class MainPage extends PageBase {
     @FindBy(xpath = "//body/div/div/div/div/div/div[1]")
     WebElement elementBtn;
 
-    public ProfilePage goToProfilePage() {
+    public ProfilePage goToBookStore() {
         bookStoreBtn.click();
         return new ProfilePage(driver);
     }

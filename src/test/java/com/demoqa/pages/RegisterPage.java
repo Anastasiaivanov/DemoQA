@@ -10,9 +10,6 @@ public class RegisterPage extends PageBase{
         super(driver);
     }
 
-    @FindBy(id = "newUser")
-    WebElement addNewUserBtn;
-
     @FindBy(id = "firstname")
     WebElement firstNameField;
 
@@ -28,17 +25,24 @@ public class RegisterPage extends PageBase{
     @FindBy(id = "register")
     WebElement registerNewUserBtn;
 
-    public RegisterPage goToRegisterPage(){
-        addNewUserBtn.click();
-        return new RegisterPage(driver);
-    }
+    @FindBy(id = "g-recaptcha")
+    WebElement recaptcha;
 
     public RegisterPage fillNewUserFields(String firstname, String lastname,String username,String password){
         type(firstNameField, firstname);
         type(lastNameField, lastname);
         type(userNameField, username);
         type(passwordField, password);
-        clickWithActionJava(registerNewUserBtn, 0,300);
+        return this;
+    }
+
+    public RegisterPage clickOnCaptcha(){
+        clickWithActionJava(recaptcha, 0, 200);
+        return this;
+    }
+
+    public RegisterPage clickOnRegisterBtn(){
+        clickWithActionJava(registerNewUserBtn, 0,200);
         return this;
     }
 }

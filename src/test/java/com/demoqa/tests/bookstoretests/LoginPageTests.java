@@ -1,8 +1,9 @@
-package com.demoqa.tests;
+package com.demoqa.tests.bookstoretests;
 
 import com.demoqa.pages.LoginPage;
 import com.demoqa.pages.MainPage;
 import com.demoqa.pages.ProfilePage;
+import com.demoqa.tests.TestBase;
 import org.testng.annotations.Test;
 
 public class LoginPageTests extends TestBase {

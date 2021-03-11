@@ -19,6 +19,14 @@ public class LoginPage extends PageBase {
     @FindBy(id = "login")
     WebElement loginBtn;
 
+    @FindBy(id = "newUser")
+    WebElement addNewUserBtn;
+
+    public RegisterPage goToRegisterPage(){
+        addNewUserBtn.click();
+        return new RegisterPage(driver);
+    }
+
     public ProfilePage loginPositive(String username, String password) {
         type(userName, username);
         type(passWord, password);

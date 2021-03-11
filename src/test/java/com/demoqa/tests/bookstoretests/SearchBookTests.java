@@ -1,6 +1,7 @@
-package com.demoqa.tests;
+package com.demoqa.tests.bookstoretests;
 
 import com.demoqa.pages.ProfilePage;
+import com.demoqa.tests.TestBase;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;

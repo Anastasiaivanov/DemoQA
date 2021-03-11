@@ -1,8 +1,10 @@
 package com.demoqa.tests;
 
+import com.demoqa.pages.MyListener;
 import com.demoqa.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -17,7 +19,8 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
-    WebDriver driver;
+    //WebDriver driver;
+    public EventFiringWebDriver driver;
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
@@ -44,7 +47,8 @@ public class TestBase {
 
     @BeforeClass
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = new EventFiringWebDriver(new ChromeDriver());
+        driver.register(new MyListener());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/");

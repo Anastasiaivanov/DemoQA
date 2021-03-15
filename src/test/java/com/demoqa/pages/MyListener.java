@@ -9,23 +9,24 @@ import org.slf4j.LoggerFactory;
 
 public class MyListener extends AbstractWebDriverEventListener {
 
-    public MyListener(){}
-
-        Logger logger = LoggerFactory.getLogger(MyListener.class);
-
-        @Override
-        public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-            logger.info("Start search " + by);
-        }
-
-        @Override
-        public void afterFindBy(By by, WebElement element, WebDriver driver) {
-            logger.info(by + "found.");
-        }
-
-        @Override
-        public void onException(Throwable throwable, WebDriver driver) {
-            logger.error(throwable.toString());
-            PageBase pageBase = new PageBase(driver);
-        }
+    public MyListener() {
     }
+
+    Logger logger = LoggerFactory.getLogger(MyListener.class);
+
+    @Override
+    public void beforeFindBy(By by, WebElement element, WebDriver driver) {
+        logger.info("Start search " + by);
+    }
+
+    @Override
+    public void afterFindBy(By by, WebElement element, WebDriver driver) {
+        logger.info(by + "found.");
+    }
+
+    @Override
+    public void onException(Throwable throwable, WebDriver driver) {
+        logger.error(throwable.toString());
+        PageBase pageBase = new PageBase(driver);
+    }
+}

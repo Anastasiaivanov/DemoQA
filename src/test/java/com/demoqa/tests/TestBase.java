@@ -2,7 +2,6 @@ package com.demoqa.tests;
 
 import com.demoqa.pages.MyListener;
 import com.demoqa.pages.PageBase;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class AlertsPage extends PageBase {
 
@@ -24,7 +23,10 @@ public class AlertsPage extends PageBase {
     @FindBy(id = "promtButton") // xpath (//*[@class='col']//button)[last()]
     WebElement promtAlertBtn;
 
-    public AlertsPage clickAlertBtn2AndWait() {
+    @FindBy(id = "alertButton")
+    WebElement alertBtn;
+
+    public AlertsPage clickAlertBtn2() {
         timeAlertBtn.click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         Alert myAlert = wait.until(ExpectedConditions.alertIsPresent());
@@ -64,8 +66,14 @@ public class AlertsPage extends PageBase {
         return this;
     }
 
-    public String getConfirmedLastResult(){
+    public String getConfirmedLastResult() {
         return driver.findElement(By.id("promptResult")).getText();
+    }
+
+    public AlertsPage clickAlertBtn1() {
+        alertBtn.click();
+        driver.switchTo().alert().accept();
+        return this;
     }
 
 }

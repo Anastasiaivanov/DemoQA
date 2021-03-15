@@ -30,7 +30,7 @@ public class MainPage extends PageBase {
         return new ElementsPage(driver);
     }
 
-    public SidePanelPage goToAlertPage(){
+    public SidePanelPage goToAlertPage() {
         clickWithActionJava(alertFrameWindowsBtn, 0, 200);
         return new SidePanelPage(driver);
     }

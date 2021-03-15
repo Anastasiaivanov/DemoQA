@@ -11,18 +11,18 @@ import org.testng.annotations.Test;
 public class AlertsTests extends TestBase {
 
     @BeforeMethod
-    public void ensurePreconditions(){
+    public void ensurePreconditions() {
         new MainPage(driver).goToAlertPage();
         new SidePanelPage(driver).selectAlerts();
     }
 
     @Test
-    public void alertWaitTest(){
-        new AlertsPage(driver).clickAlertBtn2AndWait();
+    public void alertWaitTest() {
+        new AlertsPage(driver).clickAlertBtn2();
     }
 
     @Test
-    public void alertCancelTest(){
+    public void alertCancelTest() {
         new AlertsPage(driver).clickAlertBtn3()
                 .clickOnCancelBtn("Cancel");
         Assert.assertTrue(new AlertsPage(driver)
@@ -30,10 +30,15 @@ public class AlertsTests extends TestBase {
     }
 
     @Test
-    public void alertPromtTest(){
+    public void alertPromtTest() {
         new AlertsPage(driver).clickAlertBtn4()
                 .sendTextToAlert("Anastasia");
         Assert.assertTrue(new AlertsPage(driver)
                 .getConfirmedLastResult().contains("Anastasia"));
+    }
+
+    @Test
+    public void alertSimpleTest() {
+        new AlertsPage(driver).clickAlertBtn1();
     }
 }

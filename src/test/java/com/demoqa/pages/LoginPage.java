@@ -22,7 +22,7 @@ public class LoginPage extends PageBase {
     @FindBy(id = "newUser")
     WebElement addNewUserBtn;
 
-    public RegisterPage goToRegisterPage(){
+    public RegisterPage goToRegisterPage() {
         addNewUserBtn.click();
         return new RegisterPage(driver);
     }

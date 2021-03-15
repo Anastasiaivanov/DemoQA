@@ -16,6 +16,14 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Alerts']")
     WebElement alertsBtn;
 
+    @FindBy(xpath = "//span[contains(text(),'Text Box')]")
+    WebElement textBoxBtn;
+
+    public ElementsPage goToTextBox() {
+        textBoxBtn.click();
+        return new ElementsPage(driver);
+    }
+
     public BrowserWindowPage selectBrowserWindows() {
         clickWithActionJava(browserWindowBtn, 0, 300);
         return new BrowserWindowPage(driver);

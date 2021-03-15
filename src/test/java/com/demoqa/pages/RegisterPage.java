@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterPage extends PageBase{
+public class RegisterPage extends PageBase {
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -28,7 +28,7 @@ public class RegisterPage extends PageBase{
     @FindBy(id = "g-recaptcha")
     WebElement recaptcha;
 
-    public RegisterPage fillNewUserFields(String firstname, String lastname,String username,String password){
+    public RegisterPage fillNewUserFields(String firstname, String lastname, String username, String password) {
         type(firstNameField, firstname);
         type(lastNameField, lastname);
         type(userNameField, username);
@@ -36,13 +36,13 @@ public class RegisterPage extends PageBase{
         return this;
     }
 
-    public RegisterPage clickOnCaptcha(){
+    public RegisterPage clickOnCaptcha() {
         clickWithActionJava(recaptcha, 0, 200);
         return this;
     }
 
-    public RegisterPage clickOnRegisterBtn(){
-        clickWithActionJava(registerNewUserBtn, 0,200);
+    public RegisterPage clickOnRegisterBtn() {
+        clickWithActionJava(registerNewUserBtn, 0, 200);
         return this;
     }
 }

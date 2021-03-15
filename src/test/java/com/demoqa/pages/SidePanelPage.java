@@ -13,8 +13,16 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Browser Windows']")
     WebElement browserWindowBtn;
 
+    @FindBy(xpath = "//span[.='Alerts']")
+    WebElement alertsBtn;
+
     public BrowserWindowPage selectBrowserWindows() {
         clickWithActionJava(browserWindowBtn, 0, 300);
         return new BrowserWindowPage(driver);
+    }
+
+    public AlertsPage selectAlerts() {
+        clickWithActionJava(alertsBtn, 0, 300);
+        return new AlertsPage(driver);
     }
 }

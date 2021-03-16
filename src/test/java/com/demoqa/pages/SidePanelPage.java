@@ -16,11 +16,14 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Alerts']")
     WebElement alertsBtn;
 
-    @FindBy(xpath = "//span[contains(text(),'Text Box')]")
+    @FindBy(xpath = "//span[.='Text Box']")
     WebElement textBoxBtn;
 
-    public ElementsPage goToTextBox() {
-        textBoxBtn.click();
+    @FindBy(xpath = "//span[.='Practice Form']")
+    WebElement practiceFormBtn;
+
+    public ElementsPage selectTextBox() {
+        clickWithActionJava(textBoxBtn, 0, 300);
         return new ElementsPage(driver);
     }
 
@@ -32,5 +35,10 @@ public class SidePanelPage extends PageBase {
     public AlertsPage selectAlerts() {
         clickWithActionJava(alertsBtn, 0, 300);
         return new AlertsPage(driver);
+    }
+
+    public PracticeFormPage selectPracticeForm(){
+        practiceFormBtn.click();
+        return new PracticeFormPage(driver);
     }
 }

@@ -47,6 +47,14 @@ public class PageBase {
         actions.moveToElement(driver.findElement(locator)).click().perform();
     }
 
+    public void typeWithAction(WebElement element, int x, int y, String text){
+        if(text!=null){
+            clickWithActionJava(element,x,y);
+            element.clear();
+            element.sendKeys(text);
+        }
+    }
+
     public void clickWithActionJava(WebElement element, int x, int y) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(" + x + "," + y + ")");

@@ -12,26 +12,34 @@ public class MainPage extends PageBase {
 
     @FindBy(xpath = "//body/div/div/div/div/div/div[6]")
     //(xpath = "//div[@class='category-cards']/div[.='Book Store Application']")
-    WebElement bookStoreBtn;
+    WebElement bookStoreElement;
 
     @FindBy(xpath = "//body/div/div/div/div/div/div[1]")
-    WebElement elementBtn;
+    WebElement elementsElement;
+
+    @FindBy(xpath = "//div[@class='category-cards']/div[2]")
+    WebElement formsElement;
 
     @FindBy(xpath = "//div/h5[.='Alerts, Frame & Windows']")
-    WebElement alertFrameWindowsBtn;
+    WebElement alertFrameWindowsElement;
 
-    public ProfilePage goToBookStore() {
-        bookStoreBtn.click();
-        return new ProfilePage(driver);
+    public SidePanelPage goToBookStore() {
+        bookStoreElement.click();
+        return new SidePanelPage(driver);
     }
 
-    public ElementsPage goToElementsPage() {
-        elementBtn.click();
-        return new ElementsPage(driver);
+    public SidePanelPage goToElementsPage() {
+        elementsElement.click();
+        return new SidePanelPage(driver);
     }
 
     public SidePanelPage goToAlertPage() {
-        clickWithActionJava(alertFrameWindowsBtn, 0, 200);
+        clickWithActionJava(alertFrameWindowsElement, 0, 200);
+        return new SidePanelPage(driver);
+    }
+
+    public SidePanelPage goToPracticeFormPage(){
+        clickWithActionJava(formsElement, 0, 300);
         return new SidePanelPage(driver);
     }
 }

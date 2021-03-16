@@ -1,10 +1,14 @@
 package com.demoqa.pages;
 
 import net.bytebuddy.asm.Advice;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PracticeFormPage extends PageBase {
 
@@ -36,6 +40,15 @@ public class PracticeFormPage extends PageBase {
     @FindBy(id = "dateOfBirthInput")
     WebElement dateOfBirth;
 
+    @FindBy(xpath = "//label[@for='hobbies-checkbox-1']")
+    WebElement sportHobby;
+
+    @FindBy(xpath = "//label[@for='hobbies-checkbox-2']")
+    WebElement readHobby;
+
+    @FindBy(xpath = "//label[@for='hobbies-checkbox-3']")
+    WebElement musicHobby;
+
     @FindBy(id = "subjectsInput")
     WebElement subjectInput;
 
@@ -47,6 +60,18 @@ public class PracticeFormPage extends PageBase {
 
     @FindBy(id = "currentAddress")
     WebElement currentAddress;
+
+    @FindBy(id = "state")
+    WebElement userState;
+
+    @FindBy(id = "react-select-3-option-0")
+    WebElement firstState;
+
+    @FindBy(id = "city")
+    WebElement userCity;
+
+    @FindBy(id = "react-select-4-option-0")
+    WebElement firstCity;
 
     @FindBy(id = "submit")
     WebElement submitBtn;
@@ -84,6 +109,17 @@ public class PracticeFormPage extends PageBase {
         return this;
     }
 
+    public PracticeFormPage selectHobby(String hobby) {
+        if (hobby.equalsIgnoreCase("Sport")) {
+            clickWithActionJava(sportHobby, 0, 300);
+        } else if (hobby.equalsIgnoreCase("Reading")) {
+            clickWithActionJava(readHobby, 0, 300);
+        } else if (hobby.equalsIgnoreCase("Music")) {
+            clickWithActionJava(musicHobby, 0, 300);
+        }
+        return this;
+    }
+
     public PracticeFormPage addSubject(String subject) {
         type(subjectInput, subject);
         selectSubjInput.click();
@@ -97,12 +133,30 @@ public class PracticeFormPage extends PageBase {
     }
 
     public PracticeFormPage typeAddress(String address) {
-        typeWithAction(currentAddress, 0,300, address);
+        typeWithAction(currentAddress, 0, 300, address);
         return this;
     }
 
-    public PracticeFormPage submit(){
-        clickWithActionJava(submitBtn, 0,300);
+    public PracticeFormPage chooseStateAndCity() {
+        //String state, String city
+        clickWithActionJava(userState, 0, 300);
+        firstState.click();
+        userCity.click();
+        firstCity.click();
         return this;
+    }
+
+    public PracticeFormPage submit() {
+        clickWithActionJava(submitBtn, 0, 300);
+        return this;
+    }
+
+    public PracticeFormPage turnToConfirmTable() {
+        driver.switchTo().activeElement();
+        return this;
+    }
+
+    public String getTextFromConfirmTable() {
+        return driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
     }
 }

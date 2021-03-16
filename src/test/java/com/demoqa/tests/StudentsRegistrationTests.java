@@ -3,6 +3,7 @@ package com.demoqa.tests;
 import com.demoqa.pages.MainPage;
 import com.demoqa.pages.PracticeFormPage;
 import com.demoqa.pages.SidePanelPage;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,9 @@ public class StudentsRegistrationTests extends TestBase {
         new PracticeFormPage(driver).fillMainInfoUser
                 ("Rusaldo", "Russ", "rusik@mail.com", "1122334455")
                 .selectGender("male").typeBirthday("18 мая 1989")
+                .selectHobby("Reading")
                 .addSubject("Maths").uploadFile("/Users/anastasiaivanova/Downloads/раскраска_01.jpg")
-                .typeAddress("Sea").submit();
+                .typeAddress("Sea").chooseStateAndCity().submit();
+        Assert.assertTrue(new PracticeFormPage(driver).turnToConfirmTable().getTextFromConfirmTable().contains("Thanks"));
     }
 }

@@ -1,14 +1,10 @@
 package com.demoqa.pages;
 
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PracticeFormPage extends PageBase {
 
@@ -131,16 +127,16 @@ public class PracticeFormPage extends PageBase {
         return this;
     }
 
-    public PracticeFormPage chooseStateAndCity2(String state, String city) {
+    public PracticeFormPage chooseStateAndCity(String state, String city) {
         clickWithActionJava(userState, 0, 300);
-        if(state.equalsIgnoreCase("NCR")){
+        if (state.equalsIgnoreCase("NCR")) {
             driver.findElement(By.id("react-select-3-option-0")).click();
             userCity.click();
-            if(city.equalsIgnoreCase("Delhi")){
+            if (city.equalsIgnoreCase("Delhi")) {
                 driver.findElement(By.id("react-select-4-option-0")).click();
-            } else if(city.equalsIgnoreCase("Gurgaon")) {
+            } else if (city.equalsIgnoreCase("Gurgaon")) {
                 driver.findElement(By.id("react-select-4-option-1")).click();
-            }else if(city.equalsIgnoreCase("Noida")) {
+            } else if (city.equalsIgnoreCase("Noida")) {
                 driver.findElement(By.id("react-select-4-option-2")).click();
             }
         }

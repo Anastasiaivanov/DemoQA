@@ -64,14 +64,8 @@ public class PracticeFormPage extends PageBase {
     @FindBy(id = "state")
     WebElement userState;
 
-    @FindBy(id = "react-select-3-option-0")
-    WebElement firstState;
-
     @FindBy(id = "city")
     WebElement userCity;
-
-    @FindBy(id = "react-select-4-option-0")
-    WebElement firstCity;
 
     @FindBy(id = "submit")
     WebElement submitBtn;
@@ -137,12 +131,19 @@ public class PracticeFormPage extends PageBase {
         return this;
     }
 
-    public PracticeFormPage chooseStateAndCity() {
-        //String state, String city
+    public PracticeFormPage chooseStateAndCity2(String state, String city) {
         clickWithActionJava(userState, 0, 300);
-        firstState.click();
-        userCity.click();
-        firstCity.click();
+        if(state.equalsIgnoreCase("NCR")){
+            driver.findElement(By.id("react-select-3-option-0")).click();
+            userCity.click();
+            if(city.equalsIgnoreCase("Delhi")){
+                driver.findElement(By.id("react-select-4-option-0")).click();
+            } else if(city.equalsIgnoreCase("Gurgaon")) {
+                driver.findElement(By.id("react-select-4-option-1")).click();
+            }else if(city.equalsIgnoreCase("Noida")) {
+                driver.findElement(By.id("react-select-4-option-2")).click();
+            }
+        }
         return this;
     }
 

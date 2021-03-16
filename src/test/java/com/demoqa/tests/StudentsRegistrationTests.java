@@ -22,7 +22,7 @@ public class StudentsRegistrationTests extends TestBase {
                 .selectGender("male").typeBirthday("18 мая 1989")
                 .selectHobby("Reading")
                 .addSubject("Maths").uploadFile("/Users/anastasiaivanova/Downloads/раскраска_01.jpg")
-                .typeAddress("Sea").chooseStateAndCity().submit();
+                .typeAddress("Sea").chooseStateAndCity2("NCR", "Delhi").submit();
         Assert.assertTrue(new PracticeFormPage(driver).turnToConfirmTable().getTextFromConfirmTable().contains("Thanks"));
     }
 }

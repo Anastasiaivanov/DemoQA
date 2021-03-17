@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends PageBase {
+public class HomePage extends PageBase {
 
-    public MainPage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -24,12 +24,12 @@ public class MainPage extends PageBase {
     WebElement alertFrameWindowsElement;
 
     public SidePanelPage goToBookStore() {
-        bookStoreElement.click();
+        clickWithActionJava(bookStoreElement,0,300);
         return new SidePanelPage(driver);
     }
 
     public SidePanelPage goToElementsPage() {
-        elementsElement.click();
+        clickWithActionJava(elementsElement, 0,300);
         return new SidePanelPage(driver);
     }
 

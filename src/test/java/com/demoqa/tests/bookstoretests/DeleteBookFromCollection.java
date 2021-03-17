@@ -1,7 +1,7 @@
 package com.demoqa.tests.bookstoretests;
 
 import com.demoqa.pages.LoginPage;
-import com.demoqa.pages.MainPage;
+import com.demoqa.pages.HomePage;
 import com.demoqa.pages.ProfilePage;
 import com.demoqa.tests.TestBase;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +11,7 @@ public class DeleteBookFromCollection extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        new MainPage(driver).goToBookStore();
+        new HomePage(driver).goToBookStore();
         new ProfilePage(driver).goToLoginForm();
         new LoginPage(driver).loginPositive("rusaldo", "Rusaldo12345!!");
     }

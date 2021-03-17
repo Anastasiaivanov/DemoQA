@@ -76,4 +76,8 @@ public class AlertsPage extends PageBase {
         return this;
     }
 
+    public AlertsPage alertAccept() {
+        driver.switchTo().alert().accept();
+        return this;
+    }
 }

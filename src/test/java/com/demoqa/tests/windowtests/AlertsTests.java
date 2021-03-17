@@ -1,7 +1,7 @@
 package com.demoqa.tests.windowtests;
 
 import com.demoqa.pages.AlertsPage;
-import com.demoqa.pages.MainPage;
+import com.demoqa.pages.HomePage;
 import com.demoqa.pages.SidePanelPage;
 import com.demoqa.tests.TestBase;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ public class AlertsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        new MainPage(driver).goToAlertPage();
+        new HomePage(driver).goToAlertPage();
         new SidePanelPage(driver).selectAlerts();
     }
 

@@ -1,7 +1,7 @@
 package com.demoqa.tests;
 
 import com.demoqa.pages.ElementsPage;
-import com.demoqa.pages.MainPage;
+import com.demoqa.pages.HomePage;
 import com.demoqa.pages.SidePanelPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +11,7 @@ public class ElementsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions(){
-        new MainPage(driver).goToElementsPage();
+        new HomePage(driver).goToElementsPage();
     }
 
     @Test

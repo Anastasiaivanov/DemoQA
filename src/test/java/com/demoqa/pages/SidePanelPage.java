@@ -38,7 +38,7 @@ public class SidePanelPage extends PageBase {
     }
 
     public PracticeFormPage selectPracticeForm(){
-        practiceFormBtn.click();
+        clickWithActionJava(practiceFormBtn,0,300);
         return new PracticeFormPage(driver);
     }
 }

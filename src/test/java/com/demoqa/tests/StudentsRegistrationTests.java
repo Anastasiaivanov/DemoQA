@@ -1,6 +1,6 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.MainPage;
+import com.demoqa.pages.HomePage;
 import com.demoqa.pages.PracticeFormPage;
 import com.demoqa.pages.SidePanelPage;
 import org.testng.Assert;
@@ -11,7 +11,7 @@ public class StudentsRegistrationTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        new MainPage(driver).goToPracticeFormPage();
+        new HomePage(driver).goToPracticeFormPage();
         new SidePanelPage(driver).selectPracticeForm();
     }
 

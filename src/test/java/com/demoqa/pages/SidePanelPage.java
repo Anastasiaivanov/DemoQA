@@ -22,6 +22,14 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Practice Form']")
     WebElement practiceFormBtn;
 
+    @FindBy(xpath = "//span[.='Radio Button']")
+    WebElement radioButtonBtn;
+
+    public ElementsPage selectRadioButton(){
+        clickWithActionJava(radioButtonBtn, 0,300);
+        return new ElementsPage(driver);
+    }
+
     public ElementsPage selectTextBox() {
         clickWithActionJava(textBoxBtn, 0, 300);
         return new ElementsPage(driver);

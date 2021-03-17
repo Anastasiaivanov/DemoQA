@@ -1,10 +1,9 @@
 package com.demoqa.helpers;
 
 import com.demoqa.pages.PageBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class JsExecutor extends PageBase {
 
@@ -15,22 +14,23 @@ public class JsExecutor extends PageBase {
         js = (JavascriptExecutor) driver;
     }
 
-    @FindBy(id = "userName")
-    WebElement userName;
+    public JsExecutor clickYesRadio(){
+        js.executeScript("document.getElementById('yesRadio').click();");
+        return this;
+    }
 
-    @FindBy(id = "userEmail")
-    WebElement userEmail;
-
-    @FindBy(id = "submit")
-    WebElement submitBtn;
+    public JsExecutor clickImpressRadio(){
+        js.executeScript("document.getElementById('impressiveRadio').click();");
+        return this;
+    }
 
     public JsExecutor typeNameEmailWithExecutor(String name, String email) {
         if (name != null && email != null) {
             js.executeScript("document.getElementById('userName').value='" + name + "';"); //заполняет поле в формате js
             js.executeScript("document.getElementById('userName').style.border='1px solid red';");
             js.executeScript("document.getElementById('userEmail').value='" + email + "';");
-            System.out.println(userName.getText() + "By text");
-            System.out.println(userName.getAttribute("value ") + "By value");
+            System.out.println(driver.findElement(By.id("userName")).getText() + "By text");
+            System.out.println(driver.findElement(By.id("userName")).getAttribute("value ") + "By value");
         }
         return this;
     }
@@ -72,5 +72,9 @@ public class JsExecutor extends PageBase {
         String text = js.executeScript("return document.URL;").toString();
         System.out.println("*********************" + "\n" + "URL--> " + text);
         return this;
+    }
+
+    public String getTextRadio() {
+        return driver.findElement(By.xpath("//p[@class='mt-3']")).getText();
     }
 }

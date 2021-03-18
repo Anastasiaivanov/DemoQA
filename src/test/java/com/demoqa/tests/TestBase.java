@@ -53,7 +53,7 @@ public class TestBase {
         driver.get("https://demoqa.com/");
     }
 
-    @AfterClass(enabled = false)
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }

@@ -25,6 +25,22 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Radio Button']")
     WebElement radioButtonBtn;
 
+    @FindBy(xpath = "//span[.='Broken Links - Images']")
+    WebElement brokenLinkBtn;
+
+    @FindBy(xpath = "//span[.='Links']")
+    WebElement linksBtn;
+
+    public ElementsPage selectLinks(){
+        clickWithActionJava(linksBtn,0,300);
+        return new ElementsPage(driver);
+    }
+
+    public ElementsPage selectBrokenLinks(){
+        clickWithActionJava(brokenLinkBtn, 0,300);
+        return new ElementsPage(driver);
+    }
+
     public ElementsPage selectRadioButton(){
         clickWithActionJava(radioButtonBtn, 0,300);
         return new ElementsPage(driver);

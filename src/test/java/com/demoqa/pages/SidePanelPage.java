@@ -31,18 +31,21 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Links']")
     WebElement linksBtn;
 
-    public ElementsPage selectLinks(){
-        clickWithActionJava(linksBtn,0,300);
+    @FindBy(xpath = "//span[.='Select Menu']")
+    WebElement selectMenuBtn;
+
+    public ElementsPage selectLinks() {
+        clickWithActionJava(linksBtn, 0, 300);
         return new ElementsPage(driver);
     }
 
-    public ElementsPage selectBrokenLinks(){
-        clickWithActionJava(brokenLinkBtn, 0,300);
+    public ElementsPage selectBrokenLinks() {
+        clickWithActionJava(brokenLinkBtn, 0, 300);
         return new ElementsPage(driver);
     }
 
-    public ElementsPage selectRadioButton(){
-        clickWithActionJava(radioButtonBtn, 0,300);
+    public ElementsPage selectRadioButton() {
+        clickWithActionJava(radioButtonBtn, 0, 300);
         return new ElementsPage(driver);
     }
 
@@ -61,8 +64,15 @@ public class SidePanelPage extends PageBase {
         return new AlertsPage(driver);
     }
 
-    public PracticeFormPage selectPracticeForm(){
-        clickWithActionJava(practiceFormBtn,0,300);
+    public PracticeFormPage selectPracticeForm() {
+        clickWithActionJava(practiceFormBtn, 0, 300);
         return new PracticeFormPage(driver);
+    }
+
+    public SelectMenuPage selectSelectMenu() {
+        hideFooter();
+        selectMenuBtn.click();
+        //clickWithActionJava(selectMenuBtn,0,500);
+        return new SelectMenuPage(driver);
     }
 }

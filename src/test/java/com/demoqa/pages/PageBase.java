@@ -74,4 +74,9 @@ public class PageBase {
             e.fillInStackTrace();
         }
     }
+
+    public void hideFooter(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('footer').style.display='none';");
+    }
 }

@@ -2,6 +2,8 @@
 /build/
 /out/
 .idea
+/test_logs/
+/screenshots/
 
 # Ignore Gradle GUI config
 gradle-app.setting

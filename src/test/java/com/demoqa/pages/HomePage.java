@@ -23,6 +23,9 @@ public class HomePage extends PageBase {
     @FindBy(xpath = "//div/h5[.='Alerts, Frame & Windows']")
     WebElement alertFrameWindowsElement;
 
+    @FindBy(xpath = "//div/h5[.='Widgets']")
+    WebElement widgetsElement;
+
     public SidePanelPage goToBookStore() {
         clickWithActionJava(bookStoreElement,0,300);
         return new SidePanelPage(driver);
@@ -40,6 +43,13 @@ public class HomePage extends PageBase {
 
     public SidePanelPage goToPracticeFormPage(){
         clickWithActionJava(formsElement, 0, 300);
+        return new SidePanelPage(driver);
+    }
+
+    public SidePanelPage goToWindowWidgets(){
+        hideFooter();
+        widgetsElement.click();
+        //clickWithActionJava(widgetsElement,0,300);
         return new SidePanelPage(driver);
     }
 }

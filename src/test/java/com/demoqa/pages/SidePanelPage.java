@@ -34,6 +34,14 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Select Menu']")
     WebElement selectMenuBtn;
 
+    @FindBy(xpath = "//span[.='Date Picker']")
+    WebElement dataPickerBtn;
+
+    public DatePickerPage selectDataPicker(){
+        clickWithActionJava(dataPickerBtn,0,300);
+        return new DatePickerPage(driver);
+    }
+
     public ElementsPage selectLinks() {
         clickWithActionJava(linksBtn, 0, 300);
         return new ElementsPage(driver);

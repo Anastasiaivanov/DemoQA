@@ -23,4 +23,9 @@ public class DatePickerTests extends TestBase {
     public void setDateAndTimeTest() {
         new DatePickerPage(driver).setDateAndTime("May 21 2021 14:00");
     }
+
+    @Test
+    public void datePickerWithSelect(){
+        new DatePickerPage(driver).selectDateToInput("August", "2021",5);
+    }
 }

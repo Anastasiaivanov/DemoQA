@@ -37,8 +37,24 @@ public class SidePanelPage extends PageBase {
     @FindBy(xpath = "//span[.='Date Picker']")
     WebElement dataPickerBtn;
 
-    public DatePickerPage selectDataPicker(){
-        clickWithActionJava(dataPickerBtn,0,300);
+    @FindBy(xpath = "//span[.='Tool Tips']")
+    WebElement toolTipsBtn;
+
+    @FindBy(xpath = "//span[.='Droppable']")
+    WebElement droppableBtn;
+
+    public ToolTipsPage selectToolTips(){
+        clickWithActionJava(toolTipsBtn, 0,500);
+        return new ToolTipsPage(driver);
+    }
+
+    public DropDragPage selectDroppable() {
+        clickWithActionJava(droppableBtn, 0, 300);
+        return new DropDragPage(driver);
+    }
+
+    public DatePickerPage selectDataPicker() {
+        clickWithActionJava(dataPickerBtn, 0, 300);
         return new DatePickerPage(driver);
     }
 

@@ -26,13 +26,21 @@ public class HomePage extends PageBase {
     @FindBy(xpath = "//div/h5[.='Widgets']")
     WebElement widgetsElement;
 
+    @FindBy(xpath = "//div/h5[.='Interactions']")
+    WebElement interactionsElement;
+
+    public SidePanelPage goToInteractionsPage() {
+        clickWithActionJava(interactionsElement, 0, 300);
+        return new SidePanelPage(driver);
+    }
+
     public SidePanelPage goToBookStore() {
-        clickWithActionJava(bookStoreElement,0,300);
+        clickWithActionJava(bookStoreElement, 0, 300);
         return new SidePanelPage(driver);
     }
 
     public SidePanelPage goToElementsPage() {
-        clickWithActionJava(elementsElement, 0,300);
+        clickWithActionJava(elementsElement, 0, 300);
         return new SidePanelPage(driver);
     }
 
@@ -41,12 +49,12 @@ public class HomePage extends PageBase {
         return new SidePanelPage(driver);
     }
 
-    public SidePanelPage goToPracticeFormPage(){
+    public SidePanelPage goToPracticeFormPage() {
         clickWithActionJava(formsElement, 0, 300);
         return new SidePanelPage(driver);
     }
 
-    public SidePanelPage goToWindowWidgets(){
+    public SidePanelPage goToWindowWidgets() {
         hideFooter();
         widgetsElement.click();
         //clickWithActionJava(widgetsElement,0,300);
